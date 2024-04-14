@@ -33,7 +33,7 @@ jobs:
         # Generate a unique tag (using Git commit SHA)
         UNIQUE_TAG="${GITHUB_SHA}"
 
-        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web-$UNIQUE_TAG
+        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:$UNIQUE_TAG
         docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:latest
 
         # Push both tags to ECR

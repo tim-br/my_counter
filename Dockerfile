@@ -14,7 +14,6 @@ RUN mix archive.install github hexpm/hex branch latest --force
 RUN mix local.rebar --force
 # Install dependencies
 RUN mix deps.get
-RUN mix assets.deploy
 
 # Copy the rest of your application's code
 COPY . .
@@ -22,6 +21,8 @@ COPY . .
 # Compile the project
 
 RUN mix do compile
+RUN mix assets.deploy
+
 
 # Run the application
 CMD ["mix", "phx.server"]

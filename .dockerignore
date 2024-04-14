@@ -1,0 +1,5 @@
+.git
+.gitignore
+.elixir_ls
+deps
+_build

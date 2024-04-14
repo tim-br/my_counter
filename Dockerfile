@@ -8,24 +8,18 @@ WORKDIR /app
 COPY mix.exs mix.lock ./
 
 # Install hex and rebar
-RUN ls -l /bin/sh && echo $SHELL
 
 RUN mix archive.install github hexpm/hex branch latest --force
 
 RUN mix local.rebar --force
 # Install dependencies
 RUN mix deps.get
-
-RUN ls -l /bin/sh && echo $SHELL
-
+RUN mix assets.deploy
 
 # Copy the rest of your application's code
 COPY . .
 
 # Compile the project
-
-RUN ls -l /bin/sh && echo $SHELL
-
 
 RUN mix do compile
 

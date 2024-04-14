@@ -27,18 +27,9 @@ jobs:
 
     - name: Build, Tag, and Push Docker image to ECR
       run: |
-        # Build your Docker image with a simple local tag
         docker build -t counter_web .
-
-        # Generate a unique tag (using Git commit SHA)
-        UNIQUE_TAG="${GITHUB_SHA}"
-
-        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:$UNIQUE_TAG
-        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:latest
-
-        # Push both tags to ECR
-        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:$UNIQUE_TAG
-        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web:latest
+        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web
+        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo/counter_web
       env:
         AWS_DEFAULT_REGION: us-west-2
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

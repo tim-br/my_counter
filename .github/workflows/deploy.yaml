@@ -34,7 +34,7 @@ jobs:
         docker tag counter_web:latest 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:latest
 
         # Push it to ECR
-        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:latest
+        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:counter_web
       env:
         AWS_DEFAULT_REGION: us-west-2  # Ensure the region is specified in environment variables
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

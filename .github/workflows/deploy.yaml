@@ -22,17 +22,19 @@ jobs:
 
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1
-      
+        with:
+          mask-password: true
+
     - name: Build, Tag, and Push Docker image to ECR
       run: |
         # Build your Docker image
-        docker build -t myapp .
+        docker build -t counter_web .
 
         # Tag it with the ECR repository URI
-        docker tag myapp:latest 211125762589.dkr.ecr.us-west-2.amazonaws.com/myapp:latest
+        docker tag counter_web:latest 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:latest
 
         # Push it to ECR
-        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/myapp:latest
+        docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:latest
       env:
         AWS_DEFAULT_REGION: us-west-2  # Ensure the region is specified in environment variables
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

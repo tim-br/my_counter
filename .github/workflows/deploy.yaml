@@ -31,7 +31,7 @@ jobs:
         docker build -t counter_web .
 
         # Tag it with the ECR repository URI
-        docker tag counter_web:latest 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:latest
+        docker tag counter_web 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:counter_web
 
         # Push it to ECR
         docker push 211125762589.dkr.ecr.us-west-2.amazonaws.com/repo:counter_web

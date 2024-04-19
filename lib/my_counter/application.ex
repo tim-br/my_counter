@@ -7,7 +7,8 @@ defmodule MyCounter.Application do
 
   @impl true
   def start(_type, _args) do
-    Node.connect(:genserver@localhost)
+    node_address = System.get_env("COUNTERNODE_ADDRESS") || "genserver@default-node.local"
+    Node.connect(String.to_atom(node_address))
 
     children = [
       MyCounterWeb.Telemetry,

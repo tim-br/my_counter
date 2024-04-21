@@ -3,7 +3,8 @@ defmodule MyCounterWeb.CounterLive do
 
   def mount(_params, _session, socket) do
     Phoenix.PubSub.subscribe(GlobalCounter.PubSub, "my_counter_server:update")
-    {:ok, assign(socket, :count, 0)}
+    init_value = GenServer.call({:global, :global_counter}, :get_value)
+    {:ok, assign(socket, :count, init_value)}
   end
 
   def handle_event("add", _params, socket) do

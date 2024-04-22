@@ -3,19 +3,22 @@
 @import "tailwindcss/utilities";
 
 .subdomain-list {
-  display: flex;        /* Aligns children (li) in a row */
-  padding: 0;           /* Removes default padding */
-  list-style: none;     /* Removes default list styling */
-  justify-content: space-around; /* Distributes space around items */
+  display: flex;
+  flex-wrap: wrap;              /* Allows items to wrap on smaller screens */
+  padding: 0;
+  list-style: none;
+  justify-content: center;      /* Centers items on all screen sizes */
 }
+
 .subdomain-item {
-  background-color: #000;  /* Adds a black background to each item */
-  padding: 10px 20px;      /* Adds padding for a blockier look */
-  margin: 5px;             /* Adds some space between items */
-  border-radius: 5px;      /* Rounds the corners of the blocks */
+  background-color: #000;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
 }
+
 .subdomain-link {
-  color: white;            /* Ensures text is white */
-  text-decoration: none;   /* Removes underline from links */
-  font-weight: bold;       /* Makes the font bold */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }

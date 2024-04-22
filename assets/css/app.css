@@ -2,4 +2,20 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* This file is for your main application CSS */
+.subdomain-list {
+  display: flex;        /* Aligns children (li) in a row */
+  padding: 0;           /* Removes default padding */
+  list-style: none;     /* Removes default list styling */
+  justify-content: space-around; /* Distributes space around items */
+}
+.subdomain-item {
+  background-color: #000;  /* Adds a black background to each item */
+  padding: 10px 20px;      /* Adds padding for a blockier look */
+  margin: 5px;             /* Adds some space between items */
+  border-radius: 5px;      /* Rounds the corners of the blocks */
+}
+.subdomain-link {
+  color: white;            /* Ensures text is white */
+  text-decoration: none;   /* Removes underline from links */
+  font-weight: bold;       /* Makes the font bold */
+}

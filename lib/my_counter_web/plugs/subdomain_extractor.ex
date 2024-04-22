@@ -19,9 +19,7 @@ defmodule MyCounterWeb.Plugs.SubdomainExtractor do
       ## put_flash(:info, "You can't access that page")
 
       _ ->
-        Plug.Conn.put_session(conn, :subdomain, "book")
+        Plug.Conn.put_session(conn, :subdomain, "default")
     end
-
-    ## Plug.Conn.put_session(conn, :subdomain, "book")
   end
 end

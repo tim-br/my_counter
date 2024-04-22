@@ -1,10 +1,11 @@
 defmodule MyCounterWeb.CounterLive do
   use Phoenix.LiveView
 
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
     Phoenix.PubSub.subscribe(GlobalCounter.PubSub, "my_counter_server:update")
     init_value = GenServer.call({:global, :global_counter}, :get_value)
-    {:ok, assign(socket, :count, init_value)}
+    subdomain = session["subdomain"] || "default"
+    {:ok, assign(socket, %{count: 0, subdomain: subdomain})}
   end
 
   def handle_event("add", _params, socket) do

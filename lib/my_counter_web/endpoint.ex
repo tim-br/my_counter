@@ -17,6 +17,7 @@ defmodule MyCounterWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
+
   plug Plug.Static,
     at: "/",
     from: :my_counter,
@@ -47,5 +48,8 @@ defmodule MyCounterWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  # plug MyCounterWeb.Plugs.SubdomainExtractor
+  # plug MyCounterWeb.Plugs.LogHost
+
   plug MyCounterWeb.Router
 end
